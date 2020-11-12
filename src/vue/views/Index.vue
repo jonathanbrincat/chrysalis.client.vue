@@ -269,7 +269,7 @@ import HelloWorld from '@/vue/components/HelloWorld.vue'; // @ is an alias to /s
     HelloWorld,
   },
 })
-export default class Home extends Vue {
+export default class Index extends Vue {
   private posts: any = "hear me now";
 
   async created() {
