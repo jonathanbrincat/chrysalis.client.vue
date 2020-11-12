@@ -121,7 +121,7 @@
 
           <p>{{ posts.total }} entries</p>
 
-          <!-- INSERT PAGINATION COMPONENT HERE -->
+          <Pagination :pagination="posts" />
 
           <article v-for="post in posts.data" class="ui__card" :key="post.id">
             <header class="card__header">
@@ -190,7 +190,7 @@
             </footer>
           </article>
 
-          <!-- INSERT PAGINATION COMPONENT HERE -->
+          <Pagination :pagination="posts" />
         </div>
       </div>
     </div>

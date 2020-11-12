@@ -1,9 +1,11 @@
 import { Options, Vue } from 'vue-class-component';
+import Pagination from '@/vue/components/Pagination/Pagination.vue';
 
 const URI = 'http://127.0.0.1:3333/posts';
 
 @Options({
   components: {
+    Pagination
   },
 })
 export default class Posts extends Vue {
