@@ -1,0 +1,47 @@
+/*  =============================================================================
+    Vendor
+    ============================================================================= */
+@import '~bootstrap';
+// @import '~fontawesome';
+// @import '../../node_modules/bootstrap/scss';
+// @import '../../node_modules/@fortawesome/fontawesome-free/scss';
+
+// /*  =============================================================================
+//     Framework
+//     ============================================================================= */
+@import './variables';
+@import './mixins';
+@import './functions';
+@import './placeholders';
+
+// /*  =============================================================================
+//     Core
+//     ============================================================================= */
+@import 'app.typography';
+@import 'app.reboot';
+@import 'app.iconology';
+@import 'lib.iconology';
+
+// @import 'core.utils';
+// @import 'bootstrap.grid';
+// @import 'core.responsive';
+
+// /*  =============================================================================
+//     Base styles
+//     ============================================================================= */
+@import 'styles.main';
+@import 'styles.form';
+
+// @import 'mod.banner';
+// @import 'mod.discover';
+
+// /*  =============================================================================
+//     UI components
+//     ============================================================================= */
+@import 'ui.btn';
+@import 'ui.card';
+@import 'ui.tags';
+@import 'ui.pagination';
+// @import 'ui.breadcrumbs';
+@import 'ui.hero';
+@import 'ui.chat';

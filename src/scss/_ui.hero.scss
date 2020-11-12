@@ -1,0 +1,30 @@
+.ui__hero {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  width: auto;
+  min-height: 50vh;
+  overflow: hidden; //counter margin collapse
+  display: flex;
+  align-items: flex-end;
+
+  mask: url('../svg/hero-clip-mask.svg') bottom center/cover;
+
+  h1 {
+    color: $color__white;
+    text-shadow: 2px 2px 1px rgba($color__black, 1);
+    margin: 0.25em 0;
+  }
+}
+
+.hero__panel {
+  // color: $color__white;
+  width: 100%;
+}
+
+.hero__panel form {
+  background: rgba(0,0,0, 0.6);
+  background: rgba(245,245,245, 0.4);
+  padding: 10px 20px;
+  border-radius: 1px;
+}

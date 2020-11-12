@@ -1,0 +1,237 @@
+.conversation {
+  display: grid;
+  grid-template-columns: 360px 42px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+  "aside . header"
+  "aside . body"
+  "aside . footer";
+
+  h1, h2, h3 {
+    text-shadow: none;
+  }
+}
+
+.conversation__aside {
+  grid-area: aside;
+  padding: 0 18px;
+}
+
+.conversation__item {
+  position: relative;
+  padding-left: 60px + 12px;
+
+  &--unread {
+    h1, h2, h3,
+    p {
+      font-weight: 700;
+    }
+  }
+
+  h1, h2, h3, h4,
+  p {
+    margin: 0;
+  }
+
+  .user__avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color__white;
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .conversation__snippet {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .conversation__meta {
+    border-bottom: 1px solid $color__white;
+    padding-bottom: 12px;
+    @include font-size(1.5rem);
+    color: #A0A0A0;
+    display: flex;
+    justify-content: flex-end;
+
+    .ui__badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $swatch__primary;
+      color: $color__white;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+  }
+}
+
+.conversation__header {
+  grid-area: header;
+  // background-color: $color__white;
+  padding: 0 18px;
+  border-bottom: 1px solid $color__white;
+}
+
+.conversation__transcript {
+  grid-area: body;
+  padding: 0 (18px + 12px + 6px);
+  overflow-y: scroll;
+}
+
+.conversation__chat {
+  // overflow: hidden; // clearfix
+  padding: 0 20px;
+}
+
+.chat__message {
+  max-width: 75%;
+  clear: both;
+  position: relative;
+  margin: 6px 0;
+
+  p {
+    margin: 0.5em 0;
+  }
+}
+
+.chat__recipient {
+  float: left;
+
+  & + .chat__recipient {
+    .message__body {
+      border-top-left-radius: 6px;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    .message__signature {
+      display: none;
+    }
+  }
+
+  .message__signature {
+    right: 100%;
+    margin-right: 6px;
+  }
+
+  .message__body {
+    background-color: $color__white;
+    border-top-left-radius: 0;
+
+    &:before {
+      right: 100%;
+      border-top: 10px solid $color__white;
+      border-bottom: 10px dotted transparent;
+      border-left: 10px dotted transparent;
+      border-right: 10px solid $color__white;
+    }
+  }
+}
+
+.chat__sender {
+  float: right;
+
+  & + .chat__sender {
+
+    .message__body{
+      border-top-right-radius: 6px;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    .message__signature {
+      display: none;
+    }
+  }
+
+  .message__signature {
+    left: 100%;
+    margin-left: 6px;
+  }
+
+  .message__body {
+    background-color: #C6C5B9;
+    border-top-right-radius: 0;
+
+    &:before {
+      left: 100%;
+      border-top: 10px solid #C6C5B9;
+      border-bottom: 10px dotted transparent;
+      border-left: 10px solid #C6C5B9;
+      border-right: 10px dotted transparent;
+    }
+  }
+}
+
+.message__signature {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  margin: 0;
+  transform: translateY( -(20px + 30px)/2 );
+
+  .user__avatar {
+    width: 20px + 30px;
+    height: 20px + 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color__white;
+    font-weight: 700;
+  }
+}
+
+.message__body {
+  border-radius: 6px;
+  padding: 6px 18px;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    top: 0;
+  }
+}
+
+.message__meta {
+  @include font-size(1.5rem);
+  color: #A0A0A0;
+  text-align: right;
+}
+
+.conversation__footer {
+  grid-area: footer;
+  background-color: $color__white;
+  padding: 0 18px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+
+  form {
+    display: flex;
+
+    & > input {
+      flex: 1;
+    }
+  }
+}

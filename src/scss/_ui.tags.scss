@@ -1,0 +1,10 @@
+.ui__tags {
+  @include list-unstyled;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.tags__item {
+  margin: 0;
+}
