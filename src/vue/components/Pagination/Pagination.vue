@@ -19,10 +19,13 @@ ul.ui__pagination
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 
-// interface Pagination {
-//   total: string;
-//   age: number;
-// }
+type PageObject = {
+  total: number;
+  perPage: number;
+  page: number;
+  lastPage: number;
+  data: Array<string | number>;
+}
 
 @Options({
   props: {
@@ -30,21 +33,21 @@ import { Options, Vue } from 'vue-class-component';
   }
 })
 export default class Pagination extends Vue {
-  pagination!: object
+  pagination!: PageObject;
 
-  isFirst(pagination: object): boolean {
-    return pagination.page == 1
+  isFirst(pagination: PageObject): boolean {
+    return pagination.page == 1;
   }
 
-  isCurrent(page: number, pagination: object): boolean {
-    return pagination.page == page
+  isCurrent(page: number, pagination: PageObject): boolean {
+    return pagination.page == page;
   }
 
-  isLast(pagination: object): boolean {
-    return pagination.page == pagination.lastPage
+  isLast(pagination: PageObject): boolean {
+    return pagination.page == pagination.lastPage;
   }
 
-  setPage(page: number, pagination: object): number {
+  setPage(page: number, pagination: PageObject): number {
     if(page < 1 || page > pagination.lastPage) return pagination.page;
 
     return page;
@@ -60,7 +63,7 @@ export default class Pagination extends Vue {
   }*/
 
   paginate(curr: number, total: number, delta = 5): Array<number | string> {
-    const noop: Array<number | string> = (v: number, indice: number): Array<number | string> => (total === 1 || indice%total === 1) ? [] : (v === 1) ? [v, '...'] : ['...', v];
+    const noop = (v: number, indice: number): Array<number | string> => (total === 1 || indice%total === 1) ? [] : (v === 1) ? [v, '...'] : ['...', v];
 
     if(delta > total) delta = total;
 
